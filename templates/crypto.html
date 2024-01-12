@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} Crypto</title>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>{{ title }} </h1>
+    <p>{{ price }}</p>
+
+
+    <form action="/crypto">
+        <input type="text" name="crypto" id="crypto" placeholder="Enter a Crypto" />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
