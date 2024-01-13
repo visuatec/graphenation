@@ -24,7 +24,7 @@ def get_crypto_data():
     crypto_data = get_crypto(crypto)
 
     # crypto is not found by API
-    if "code" in crypto_data:
+    if "error" in crypto_data:
         return render_template(
             "crypto-not-found.html",
             full_data=crypto_data,
