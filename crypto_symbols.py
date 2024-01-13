@@ -6,8 +6,8 @@ import os
 load_dotenv()
 
 
-def get_crypto(crypto):
-    url = f"https://api.api-ninjas.com/v1/cryptoprice?symbol={crypto}"
+def get_crypto_symbols():
+    url = "https://api.api-ninjas.com/v1/cryptosymbols"
     response = requests.get(url, headers={"X-Api-Key": f"{os.getenv('NINJA_API_KEY')}"})
 
     if response.status_code == requests.codes.ok:
@@ -17,12 +17,7 @@ def get_crypto(crypto):
 
 
 if __name__ == "__main__":
-    print("\n*** Get Crypto Details ***\n")
-
-    crypto = input("\nPlease enter a Crypto Currency :")
-    crypto_data = get_crypto(crypto)
-
+    print("\n*** Getting ALL Crypto Symbols ***\n")
+    crypto_data = get_crypto_symbols()
     print("\n")
-    print(crypto_data["symbol"])
-    print("${:,.4f}".format(float(crypto_data["price"])))
     pprint(crypto_data)
