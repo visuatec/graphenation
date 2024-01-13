@@ -32,6 +32,7 @@ def get_crypto_data():
 
     return render_template(
         "crypto.html",
+        full_data=crypto_data,
         title=crypto_data["symbol"].upper(),
         price="${:,.4f}".format(float(crypto_data["price"])),
     )
