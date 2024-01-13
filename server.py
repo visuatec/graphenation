@@ -38,6 +38,8 @@ def get_crypto_data():
         full_data=crypto_data,
         title=crypto_data["symbol"].upper(),
         price="${:,.4f}".format(float(crypto_data["price"])),
+        # format timestamp below
+        timestamp=crypto_data["timestamp"].replace("T", " ").replace("Z", ""),
     )
 
 

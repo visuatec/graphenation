@@ -7,10 +7,13 @@ load_dotenv()
 
 
 def get_crypto(crypto="BTC"):
-    request_url = f"https://api.binance.com/api/v3/ticker/price?symbol={crypto}USDT"
+    url = f"https://api.api-ninjas.com/v1/cryptoprice?symbol={crypto}USDT"
+    response = requests.get(url, headers={"X-Api-Key": f"{os.getenv('NINJA_API_KEY')}"})
 
-    crypto_data = requests.get(request_url).json()
-    return crypto_data
+    if response.status_code == requests.codes.ok:
+        return response.json()
+    else:
+        return f"Error:, {response.status_code}, {response.text}"
 
 
 if __name__ == "__main__":
