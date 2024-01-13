@@ -6,12 +6,13 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+crypto_symbols = get_crypto_symbols()
+symbols = crypto_symbols["symbols"]
+
 
 @app.route("/")
 @app.route("/index")
 def index():
-    crypto_symbols = get_crypto_symbols()
-    symbols = crypto_symbols["symbols"]
     return render_template("index.html", symbols=symbols)
 
 
@@ -32,6 +33,7 @@ def get_crypto_data():
         return render_template(
             "crypto-not-found.html",
             full_data=crypto_data,
+            symbols=symbols,
         )
 
     # format the price to 2 decimal places and usd currency
@@ -46,6 +48,7 @@ def get_crypto_data():
         title=crypto_data["symbol"],
         price="${:,.4f}".format(float(crypto_data["price"])),
         timestamp=dt_object.strftime("%Y-%m-%d %H:%M:%S"),
+        symbols=symbols,
     )
 
 

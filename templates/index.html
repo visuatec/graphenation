@@ -11,7 +11,11 @@
 <body>
     <h1>Get Crypto Data</h1>
     <form action="/crypto">
-        <select name="crypto" id="crypto" placeholder="Enter a Crypto">
+        <select name="crypto" id="crypto" placeholder="Select a Crypto">
+            <option value="BTCUSDT">BTCUSDT</option>   
+            <option value="ETHUSDT">ETHUSDT</option>   
+            <option value="XRPUSDT">XRPUSDT</option>   
+            <option disabled>---------</option> 
         {% for symbol in symbols %}
             <option value="{{ symbol }}">{{ symbol }}</option>
         {% endfor %}
