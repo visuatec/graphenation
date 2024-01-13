@@ -23,4 +23,6 @@ if __name__ == "__main__":
     crypto_data = get_crypto(crypto)
 
     print("\n")
+    print(crypto_data["symbol"])
+    print("${:,.4f}".format(float(crypto_data["price"])))
     pprint(crypto_data)

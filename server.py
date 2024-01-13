@@ -36,7 +36,7 @@ def get_crypto_data():
     return render_template(
         "crypto.html",
         full_data=crypto_data,
-        title=crypto_data["symbol"].upper(),
+        title=crypto_data["symbol"],
         price="${:,.4f}".format(float(crypto_data["price"])),
         # format timestamp below
         timestamp=crypto_data["timestamp"].replace("T", " ").replace("Z", ""),
