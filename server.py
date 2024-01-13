@@ -25,7 +25,10 @@ def get_crypto_data():
 
     # crypto is not found by API
     if "code" in crypto_data:
-        return render_template("crypto-not-found.html")
+        return render_template(
+            "crypto-not-found.html",
+            full_data=crypto_data,
+        )
     # if not crypto_data["code"] == 200:
     #     return render_template("crypto-not-found.html")
     # format the price to 2 decimal places and usd currency
