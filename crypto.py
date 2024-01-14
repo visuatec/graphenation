@@ -21,6 +21,7 @@ if __name__ == "__main__":
 
     crypto = input("\nPlease enter a Crypto Currency :")
     crypto_data = get_crypto(crypto)
+    # test with BTCUSDT
 
     print("\n")
     print(crypto_data["symbol"])
